@@ -48,7 +48,9 @@ chmod 600 /data/.bash_history
 ln -s -f /data/.bash_history /root/.bash_history
 
 # Store token for Hass.io API
+bashio::log.info "We are creating bash_profile"
 while read -r line ; do
+  bashio::log.info "$line"
   echo "$line" >> /root/.bash_profile
 done <<< "$(bashio::config 'bash_profile')"
 
